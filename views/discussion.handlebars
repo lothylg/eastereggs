@@ -1,0 +1,33 @@
+<div id="rightSide" class="row col-lg-12 col-md-12">
+    <div id="movieInfo" class="row col-lg-12 col-md-12">
+        <div id="fromAPI" class="col-lg-10 col-md-10 row">
+            <div id="moviePoster" class="col-lg-3">
+                <img src={{movie_poster}} alt="Movie Poster">
+            </div>
+            <div id="movieInfo" class="col-lg-9 col-md-9">
+                <h1>{{movie_title}}</h1>
+                <p>{{release_year}}</p>
+                <p><strong>Director:</strong> {{director}}</p>
+                <p><strong>Writer:</strong> {{movie_writer}}</p>
+                <p><strong>Cast:</strong> {{movie_actor}}</p>
+            </div>
+        </div>
+        <div id="discussion-container" class="col-lg-12 col-md-12 flex-fill border">
+            <h2>Discussion Topics</h2>
+            {{#if discussions.length}}
+            {{#each discussions}}
+                <button class="discussion-button" onclick="window.location.href='/discussion/{{id}}'">{{title}}</button>
+            {{/each}}
+            {{else}}
+            <p>No discussion topics yet. Be the first to start one!</p>
+            {{/if}}
+        </div>
+        <div id="topic-container" class="text-center col-lg-12 col-md-12">
+            <h2>Start a Discussion</h2>
+            <form id="new-topic-form" action="/discussion/new" method="POST">
+            <input type="text" name="topic" id="topic-input" placeholder="Enter a topic to discuss about this movie" required>
+            <button type="submit">Start Discussion</button>
+            </form>
+        </div>
+    </div>
+</div>
