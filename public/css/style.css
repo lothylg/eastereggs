@@ -1,0 +1,229 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+/* Header Styles */
+#main-header {
+    background-color: orange;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    text-decoration: none;
+    color: white;
+}
+
+#leftBorder {
+    border: 1px solid rgb(155, 53, 227);
+}
+
+.header-left h1 {
+    font-weight: bold;
+    margin: 0;
+    font-size: 24px;
+}
+
+.header-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-center input {
+    padding: 5px;
+    width: 200px;
+    margin-right: 10px;
+}
+
+#saying {
+    background-color: orange;
+    border-bottom: 5px solid pink;
+}
+#seeSmthg {
+    color: white;
+}
+
+.header-center button {
+    padding: 5px 10px;
+    background-color: #fff;
+    color: orange;
+    border: none;
+    cursor: pointer;
+}
+
+.header-center button:hover {
+    background-color: #e0e0e0;
+}
+
+.header-right span {
+    font-size: 16px;
+}
+
+#footer {
+    background-color: rgb(157, 74, 225);
+    padding: 10px;
+}
+
+/* Movie Search Page Styles */
+.movie-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.movie {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.movie img {
+    width: 100%;
+    height: auto;
+}
+
+/* Discussion Page Styles */
+.discussion-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 45%;
+    margin: 20px auto;
+}
+
+.movie-poster {
+    max-width: 200px;
+}
+
+.movie-details {
+    text-align: left;
+}
+
+.topic-container {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 45%;
+    margin: 20px auto;
+}
+
+.topic-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.topic-container button {
+    width: 100%;
+}
+
+
+/* General Styles
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+input {
+    padding: 10px;
+    width: 300px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.movie-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.movie {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.movie img {
+    width: 100%;
+    height: auto;
+}
+
+.discussion-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 45%;
+    margin: 20px auto;
+}
+
+.movie-poster {
+    max-width: 200px;
+}
+
+.movie-details {
+    text-align: left;
+}
+
+.topic-container {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 45%;
+    margin: 20px auto;
+}
+
+.topic-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.topic-container button {
+    width: 100%;
+}
