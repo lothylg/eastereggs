@@ -1,0 +1,9 @@
+<div id="movie-container" class="movie-container">
+    {{#each movies}}
+        <div class="movie" data-id={{imdbID}}>
+            <h2>{{Title}}</h2>
+            <p>{{Year}}</p>
+            <img src={{Poster}} alt={{Title}} Poster>
+        </div>
+    {{/each}}
+</div>
