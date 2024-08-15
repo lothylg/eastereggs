@@ -4,6 +4,7 @@
 /logout
 /recentlyreleased
 /comments
+/
 
 
 topic table
