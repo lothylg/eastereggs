@@ -28,16 +28,35 @@ async function randomMovieGroup() {
 router.get('/', async (req, res) => {
     try {
         const randomMovies = await randomMovieGroup()
-        res.render('homepage', {randomMovies} );
+        const apiKey = 'c5d6f49c';
+        const avatarId = 'tt0499549'
+        const url = `http://www.omdbapi.com/?apikey=${apiKey}&i=${avatarId}`;
+        const response = await fetch(url)
+        const avatar = await response.json()
+        const discussionsData = await Discussion.findAll({
+            where: {movie_id: 'tt0499549'}
+        })
+        res.render('homepage', {randomMovies, avatar, discussions: discussionsData} );
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'Failed to fetch recent movies', details: err.message });
     }
 });
 
-router.get('/', async (req,res) => {
-    res.render("homepage")
-});
+// router.get('/', async (req,res) => {
+//     const apiKey = 'c5d6f49c';
+//     const avatarId = 'tt0499549'
+//     const url = `http://www.omdbapi.com/?apikey=${apiKey}&i=${avatarId}`;
+//     const response = await fetch(url)
+//     const avatar = await response.json()
+//     console.log(avatar)
+//     const discussionsData = await Discussion.findAll({
+//         where: {movie_id: 'tt0499549'}
+//     })
+//     const discussions = discussionsData.map(discussion => discussion.get({plain:true}))
+//     res.render("homepage", {avatar, discussions})
+
+// });
 
 router.get('/login', async (req,res) => {
     res.render('login')
