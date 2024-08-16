@@ -17,16 +17,18 @@
 </head>
 
 <body>
-    <header class="col-lg-12 col-md-12 col-sm-12  bg-warning mb-8 row ">
-        <div class="col-lg-12 d-flex justify-content-between">
-            <button type="button" id="homeBtn" class="btn btn-lg"> EggHeads </button>
-            <input id="movieSearch" class="m-4 w-50" type="text" placeholder="Find a movie">
-            <button type="button" id="loginBtn" class="btn">Login</button>
-        </div>
-        <div class="col-lg-12 text-center">
-            <p> See something, say something. </p>
-        </div>
-    </header>
+        <header class="col-lg-12 col-md-12 col-sm-12  bg-warning mb-8 row ">
+            <div class="col-lg-12 d-flex justify-content-between">
+                <button type="button" id="homeBtn" class="btn btn-lg"> EggHeads </button>
+                <div id="search-container">
+                    <input type="text" class="m-4 w-300" id="search-input" placeholder="Search for a movie" onkeypress="handleKeyPress(event)">
+                </div>
+                <button type="button" id="loginBtn" class="btn">Login</button>
+            </div>
+            <div class="col-lg-12 text-center">
+                <p> See something, say something. </p>
+            </div>
+        </header>
   <div class="main col-lg-12 col-sm-0 row m-3 mvh-100">
         <div id="leftNav" class="col-lg-3 col-md-3 col-sm-0 col-xs-0 order-lg-1 order-md-1 order-sm-2 order-xs-2 mvh-100">
             <div id="leftBorder" class="container-fluid border border-1 rounded p-4 col flex-fill min-vh-100">

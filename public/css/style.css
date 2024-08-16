@@ -90,6 +90,11 @@ header a {
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.movie:hover {
+    transform: scale(1.05);
 }
 
 .movie img {

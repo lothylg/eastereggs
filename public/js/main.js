@@ -8,6 +8,7 @@ loginBtn.addEventListener('click', () => {
     window.location.href = "/login"
 });
 
+
 homeBtn.addEventListener('click', () => {
     window.location.href = "/"
 });
@@ -15,7 +16,7 @@ homeBtn.addEventListener('click', () => {
 myProfile.addEventListener('click', () => {
     window.location.href = "/me"
 });
-createUserBtn.addEventListener('click', (event) => {
+createUserBtn?.addEventListener('click', (event) => {
     event.preventDefault();
 
     const displayName = document.querySelector('#dNameInput').value;
@@ -38,7 +39,7 @@ createUserBtn.addEventListener('click', (event) => {
 });
 
 // Handle user login
-loginFormBtn.addEventListener('click', (event) => {
+loginFormBtn?.addEventListener('click', (event) => {
     event.preventDefault(); // Prevent form from submitting normally
 
     const email = document.querySelector('#loginEmailInput').value;
