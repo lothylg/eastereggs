@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
@@ -139,6 +139,28 @@ header a {
 
 .topic-container button {
     width: 100%;
+}
+
+h3 {
+    margin-bottom: 0; 
+    padding-bottom: 0; 
+}
+
+#container-fluid {
+    margin-top: 0; 
+    padding-top: 0; 
+}
+
+#homeBtn {
+    color: white;
+    font-size: xx-large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#loginBtn {
+    color: white;
+    font-size: large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 

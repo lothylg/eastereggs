@@ -1,4 +1,3 @@
-
 const sequelize = require('../config/connection');
 const { User, Discussion, Comment } = require('../models');
 
@@ -15,8 +14,6 @@ const seedDatabase = async () => {
       individualHooks: true,
       returning: true,
     });
-
-    console.log('Users seeded successfully');
 
     // Seed discussions
     await Discussion.bulkCreate(discussionData, {
