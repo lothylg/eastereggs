@@ -1,5 +1,5 @@
 ## Title:
-EggHeads - where egg hunter gather to find the hidden details
+EggHeads - where egg hunters gather to find the hidden details
 
 ## Description:
 This site utilizes the api from https://omdbapi.com/ to pull movie and loads of information provided by the API. When a movie is chosen, discussions based on a movie will be presented. Users will need to sign in tyo be able to participate in the conversation
