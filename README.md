@@ -7,7 +7,8 @@ This site utilizes the api from https://omdbapi.com/ to pull movie and loads of 
 ## Group Members
 Dan Heer, Lothy Gresser, Gary Almes
 
-## link to the site in render: 
+## Link to the site in render: 
+https://eastereggs.onrender.com/
 
 ## Screenshots of the site: 
 ![Screen Shot 2024-08-16 at 3 56 21 PM](https://github.com/user-attachments/assets/2dcf0d21-8e3e-4e8a-a1a7-643cf93da87d)
