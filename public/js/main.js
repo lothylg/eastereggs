@@ -3,6 +3,7 @@ const loginFormBtn = document.querySelector('#loginFormBtn');
 const createUserBtn = document.querySelector('#createUserBtn');
 const homeBtn = document.querySelector('#homeBtn');
 const myProfile = document.querySelector('#myProfile');
+const discussionTopic = document.querySelector('.discussionTopic');
 
 loginBtn.addEventListener('click', () => {
     window.location.href = "/login"
@@ -14,7 +15,10 @@ homeBtn.addEventListener('click', () => {
 });
 
 myProfile.addEventListener('click', () => {
-    window.location.href = "/me"
+    window.location.href = "/profile"
+});
+discussionTopic.addEventListener('click', () => {
+    window.location.href = "/discussion/"
 });
 createUserBtn?.addEventListener('click', (event) => {
     event.preventDefault();

@@ -28,28 +28,75 @@ async function randomMovieGroup() {
 router.get('/', async (req, res) => {
     try {
         const randomMovies = await randomMovieGroup()
-        res.render('homepage', {randomMovies} );
+        const apiKey = 'c5d6f49c';
+        const avatarId = 'tt0499549'
+        const url = `http://www.omdbapi.com/?apikey=${apiKey}&i=${avatarId}`;
+        const response = await fetch(url)
+        const avatar = await response.json()
+        const discussionsData = await Discussion.findAll({
+            where: {movie_id: 'tt0499549'}
+        })
+        res.render('homepage', {randomMovies, avatar, discussions: discussionsData} );
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'Failed to fetch recent movies', details: err.message });
     }
 });
 
-router.get('/', async (req,res) => {
-    res.render("homepage")
-});
+// router.get('/', async (req,res) => {
+//     const apiKey = 'c5d6f49c';
+//     const avatarId = 'tt0499549'
+//     const url = `http://www.omdbapi.com/?apikey=${apiKey}&i=${avatarId}`;
+//     const response = await fetch(url)
+//     const avatar = await response.json()
+//     console.log(avatar)
+//     const discussionsData = await Discussion.findAll({
+//         where: {movie_id: 'tt0499549'}
+//     })
+//     const discussions = discussionsData.map(discussion => discussion.get({plain:true}))
+//     res.render("homepage", {avatar, discussions})
+
+// });
 
 router.get('/login', async (req,res) => {
     res.render('login')
 });
 
-router.get('/me', async (req,res) => {
-    res.render('profile')
+router.get('/profile', async (req, res) => {
+    try {
+
+        // const userId = req.session.user_id;
+        const userId = '2';
+
+        const user = await User.findByPk(userId);
+        const userData = user.get({ plain: true })
+
+        if (!user) {
+            return res.status(404).send('User not found');
+        }
+
+        const discussions = await Discussion.findAll({
+            where: { user_id: userId }
+        });
+
+        const discussionsData = discussions.map(discussion => discussion.get({ plain: true }));
+
+        res.render('profile', {
+            user: userData,
+            discussions: discussionsData
+        });
+    } catch (error) {
+        console.error('Error fetching user and discussions:', error);
+        res.status(500).send('Internal Server Error');
+    }
 });
 
+
 router.get('/discussion', (req, res) => {
+    //should add a bunch of discussions
     res.render('discussion');
 });
+
 router.get('/me', async (req, res) => {
     try {
         const user = req.user;
@@ -59,13 +106,7 @@ router.get('/me', async (req, res) => {
         }
 
         // Render the 'profile' view using the 'movie' layout and pass user data
-        res.render('profile', {
-            layout: 'movie',
-            profile: {
-                username: user.username,
-                email: user.email         
-            }
-        });
+        res.render('profile')
     } catch (error) {
         console.error('Error fetching user data:', error);
         res.status(500).send('Internal Server Error');
@@ -115,6 +156,27 @@ router.post('/login', async (req, res) => {
     } catch (error) {
         console.error('Error logging in user:', error);
         res.status(500).json({ error: 'Failed to login' });
+    }
+});
+
+router.get('/movie/:id', withAuth, async (req, res) => {
+    try {
+        const movieId = req.params.id; // Get movie_id from route parameter
+
+        // Fetch discussions for the specific movie
+        const discussions = await Discussion.findAll({
+            where: {
+                movie_id: movieId
+            }
+        });
+
+        // Render the 'discussions' view with the fetched discussions
+        res.render('discussions', {
+            discussions
+        });
+    } catch (error) {
+        console.error('Error fetching discussions:', error);
+        res.status(500).send('Internal Server Error');
     }
 });
 

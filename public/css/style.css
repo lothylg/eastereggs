@@ -1,9 +1,10 @@
 /* General Styles */
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f0f5f4;
     text-align: center;
 }
 
@@ -167,94 +168,22 @@ h3 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
-/* General Styles
-body {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    background-color: #f4f4f4;
-    text-align: center;
+#contentContainer {
+    background-color: #a7ef86;
+    display: flex;
+    justify-content: center;
+    height: 40vh;
 }
 
-h1 {
-    color: #333;
-}
-
-input {
-    padding: 10px;
-    width: 300px;
-    margin-right: 10px;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #007BFF;
+#myProfile {
     color: white;
-    border: none;
-    cursor: pointer;
 }
 
-button:hover {
-    background-color: #0056b3;
+footer p{
+    color: white;
 }
 
-.movie-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 20px;
+#homeLogOutA {
+    padding-top: 50px;;
 }
 
-.movie {
-    border: 1px solid #ccc;
-    padding: 10px;
-    width: 200px;
-    text-align: center;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-}
-
-.movie img {
-    width: 100%;
-    height: auto;
-}
-
-.discussion-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 45%;
-    margin: 20px auto;
-}
-
-.movie-poster {
-    max-width: 200px;
-}
-
-.movie-details {
-    text-align: left;
-}
-
-.topic-container {
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 45%;
-    margin: 20px auto;
-}
-
-.topic-container input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
-.topic-container button {
-    width: 100%;
-}
