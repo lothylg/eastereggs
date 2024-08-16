@@ -27,6 +27,10 @@ header a {
     border: 1px solid rgb(155, 53, 227);
 }
 
+#leftNav {
+    height: 700px;
+}
+
 .header-left h1 {
     font-weight: bold;
     margin: 0;

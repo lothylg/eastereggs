@@ -1,24 +1,44 @@
 const router = require('express').Router();
 const { User, Discussion } = require('../models');
+const fetch = require('node-fetch');
+const apiKey = 'c5d6f49c';
 const withAuth = require('../utils/auth');
 
+async function randomMovieGroup() {
+    const keywords = ["new", "fire", "back", "dead", "dog", "cat", "dragon", "cops", "law", "detective", "report", "study", "love", "death", "lost", "big", "world", "star", "american", "war"]
+    const searchQuery = keywords[Math.floor(Math.random() * keywords.length)];
+    const response = await fetch(`http://www.omdbapi.com/?apikey=${apiKey}&s=${searchQuery}`);
+    
+    if (!response.ok) {
+        throw new Error(`OMDb API responded with status ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    if (!data.Search || data.Search.length === 0) {
+        throw new Error('No movies found from OMDb API');
+    }
+
+    const sortedMovies = data.Search;
+
+    const randomMovies = sortedMovies.slice(0, 15);
+    return randomMovies
+}
+
+router.get('/', async (req, res) => {
+    try {
+        const randomMovies = await randomMovieGroup()
+        res.render('homepage', {randomMovies} );
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Failed to fetch recent movies', details: err.message });
+    }
+});
 
 router.get('/', async (req,res) => {
-    const apiKey = 'c5d6f49c';
-    const avatarId = 'tt0499549'
-    const url = `http://www.omdbapi.com/?apikey=${apiKey}&i=${avatarId}`;
-    const response = await fetch(url)
-    const avatar = await response.json()
-    console.log(avatar)
-    const discussionsData = await Discussion.findAll({
-        where: {movie_id: 'tt0499549'}
-    })
-    const discussions = discussionsData.map(discussion => discussion.get({plain:true}))
-    res.render("homepage", {avatar, discussions})
-
+    res.render("homepage")
 });
-    //every page we want has handlebars, it must be xyz.handlebars then 
-    //res.render("xyz")
+
 router.get('/login', async (req,res) => {
     res.render('login')
 });
@@ -80,9 +100,10 @@ router.get('/search', async (req, res) => {
     const url = `http://www.omdbapi.com/?apikey=${apiKey}&s=${query}`;
 
     try {
+        const randomMovies = await randomMovieGroup()
         const response = await fetch(url);
         const data = await response.json();
-        res.render('search', { movies: data.Search });
+        res.render('search', { movies: data.Search, randomMovies });
     } catch(err){
         console.log(err)
     }

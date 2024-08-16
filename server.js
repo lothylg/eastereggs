@@ -22,6 +22,8 @@ app.use(session(sess));
 const hbs = exphbs.create({
   defaultLayout: 'main',
   layoutsDir: path.join(__dirname, 'views', 'layouts'),
+  allowProtoPropertiesByDefault: true,
+  allowProtoMethodsByDefault: true,
   helpers: helpers
 });
 
