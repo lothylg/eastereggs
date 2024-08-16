@@ -1,9 +1,19 @@
 const loginBtn = document.querySelector('#loginBtn');
 const loginFormBtn = document.querySelector('#loginFormBtn');
 const createUserBtn = document.querySelector('#createUserBtn');
+const homeBtn = document.querySelector('#homeBtn');
+const myProfile = document.querySelector('#myProfile');
 
 loginBtn.addEventListener('click', () => {
     window.location.href = "/login"
+});
+
+homeBtn.addEventListener('click', () => {
+    window.location.href = "/"
+});
+
+myProfile.addEventListener('click', () => {
+    window.location.href = "/me"
 });
 createUserBtn.addEventListener('click', (event) => {
     event.preventDefault();

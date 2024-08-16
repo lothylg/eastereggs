@@ -1,5 +1,5 @@
-const sequelize = require('./config/connection');
-const { User, Post, Comment } = require('./models'); // Replace with your actual models
+const sequelize = require('../config/connection');
+const { User, Discussion, Comment } = require('../models'); 
 
 const userData = [
     {
@@ -154,7 +154,7 @@ const userData = [
       }
 ];
 
-const postData = [
+const discussionData = [
     {
         "movie_id": "tt0034492e",
         "text": "This movie is a classic, but not my favorite.",
@@ -670,8 +670,8 @@ const seedDatabase = async () => {
     await User.bulkCreate(userData, { individualHooks: true });
     console.log('Users seeded');
 
-    await Post.bulkCreate(postData);
-    console.log('Posts seeded');
+    await Discussion.bulkCreate(discussionData);
+    console.log('Discussions seeded');
 
     await Comment.bulkCreate(commentData);
     console.log('Comments seeded');
