@@ -69,6 +69,8 @@ function searchMoviesFromDiscussion() {
     }
 }
 
+
+
 function handleKeyPress(event) {
     if (event.key === 'Enter') {
         const query = document.getElementById('search-input').value;
