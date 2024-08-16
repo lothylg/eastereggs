@@ -1,9 +1,11 @@
-<div id="movie-container" class="movie-container">
-    {{#each movies}}
-        <div class="movie" data-id={{imdbID}}>
-            <h2>{{Title}}</h2>
-            <p>{{Year}}</p>
-            <img src={{Poster}} alt={{Title}} Poster>
+<div id="movie-container" class="d-flex flex-wrap justify-content-center">
+    {{#each movies as |movie|}}
+    <div class="movie card m-3" style="width: 18rem;" onclick="viewMovie('{{movie.imdbID}}')">
+        <img src="{{movie.Poster}}" class="card-img-top" alt="{{movie.Title}} Poster">
+        <div class="card-body">
+            <h5 class="card-title">{{movie.Title}}</h5>
+            <p class="card-text">{{movie.Year}}</p>
         </div>
+    </div>
     {{/each}}
 </div>

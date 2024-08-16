@@ -5,7 +5,8 @@ const createUserBtn = document.querySelector('#createUserBtn');
 loginBtn.addEventListener('click', () => {
     window.location.href = "/login"
 });
-createUserBtn.addEventListener('click', (event) => {
+
+createUserBtn?.addEventListener('click', (event) => {
     event.preventDefault();
 
     const displayName = document.querySelector('#dNameInput').value;
@@ -28,7 +29,7 @@ createUserBtn.addEventListener('click', (event) => {
 });
 
 // Handle user login
-loginFormBtn.addEventListener('click', (event) => {
+loginFormBtn?.addEventListener('click', (event) => {
     event.preventDefault(); // Prevent form from submitting normally
 
     const email = document.querySelector('#loginEmailInput').value;

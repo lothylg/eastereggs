@@ -21,6 +21,21 @@ router.get('/discussion', (req, res) => {
     res.render('discussion');
 });
 
+router.get('/search', async (req, res) => {
+    const query = req.query.q;
+    const apiKey = 'c5d6f49c';
+    const url = `http://www.omdbapi.com/?apikey=${apiKey}&s=${query}`;
+
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        res.render('search', { movies: data.Search });
+    } catch(err){
+        console.log(err)
+    }
+});
+
+
 // Route to handle user registration
 router.post('/register', async (req, res) => {
     try {
@@ -51,8 +66,6 @@ router.post('/login', async (req, res) => {
         res.status(500).json({ error: 'Failed to login' });
     }
 });
-
-
 
 
 
