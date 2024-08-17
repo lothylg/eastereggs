@@ -13,9 +13,11 @@ router.get('/', async (req, res) => {
   }
 });
 
+
 // If a POST request is made to /api/users, a new user is created. The user id and logged in state is saved to the session within the request object.
 //new user is created from form
 router.post('/', async (req, res) => {
+
   try {
     const userData = await User.create(req.body);
 

@@ -10,20 +10,36 @@
                 <p><strong>Director:</strong> {{movie.Director}}</p>
                 <p><strong>Writer:</strong> {{movie.Writer}}</p>
                 <p><strong>Cast:</strong> {{movie.Actors}}</p>
-            </div>
+            
+                {{#if not_logged_in }}
+                  <p>Log in and you can participate in discussions about this movie!</p>
+                {{/if}}
+              </div>
         </div>
 
-        <div id="discussion-wrapper" class="row">
+        {{#if logged_in }}
+          <div id="discussion-wrapper" class="row">
             <div class="col-12">
-                <h2>Let's Discuss</h2>
-                <div id="discussion-area-wrapper" class="col-lg-12 col-md-12">
-                    <div id="discussions-area" class="container-fluid gap-3"></div>
+              <div class="discussion-title-bar row">
+                <div class="col-9">
+                  <h2>Let's Discuss</h2>
                 </div>
+                <div id="dynamic-area" class="d-flex justify-content-end col-3"></div>
+              </div>
+    
+
+              <div class="row">
+                <div id="discussion-area-wrapper" class="col-lg-12 col-md-12">
+                  <div id="discussions-area" class="container-fluid gap-3"></div>
+                </div>
+              </div>
             </div>
-        </div>
+          </div>          
+        {{/if}}
     </div>
 </div>
 
+{{#if logged_in }}
 <script>
     const currMovieId = "{{movie.imdbID}}";
     const currDiscussionUser = "{{user}}"
@@ -37,3 +53,4 @@
     console.log("currDiscussionText", currDiscussionText)
 </script>
 <script type="text/javascript" src="/js/discussion.js"></script>
+{{/if}}
