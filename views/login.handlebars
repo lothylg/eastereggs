@@ -5,31 +5,31 @@
             eggs that the people involved lovingly put into the movie for us and their loved ones! </p>
     </div>
     <div class="col-lg-6 col-md-6">
-        <form id="signupForm" method="post" action="/api/users">
+        <form class="signup-form">
             <h3>Sign up!</h3>
             <h5 class="loginFormLabel">Display name</h5><br>
             <label class="formDetail">This will be the name other users see when you post</label><br>
-            <input id="dNameInput" name="username" type="text" required><br>
+            <input id="name-signup" name="username" type="text" required><br>
             <h5 class="loginFormLabel">E-mail address</h5><br>
             <label class="formDetail">This will be used to keep you in the know / recover your password</label><br>
-            <input id="emailInput" name="email" type="email" required><br>
+            <input id="email-signup" name="email" type="email" required><br>
             <h5 class="loginFormLabel">Password</h5><br>
             <label class="formDetail">Must be at least 8 characters</label><br>
-            <input id="hashedPwInput" name="password" type="password" required><br>
-            <button id="createUserBtn" type="submit">Join!</button><br>
+            <input id="password-signup" name="password" type="password" required><br>
+            <button id="button-signup" type="submit">Join!</button><br>
         </form>
     </div>
     <div class="border-left border-dark col-lg-6 col-md-6">
-        <form id="loginForm" method="post" action="/api/users/login">
+        <form class="login-form">
             <h3>Already an EggHead?</h3><br>
             <h3>Sign In!</h3>
             <label>Email Address</label><br>
-            <input name="email" type="email" required><br>
+            <input id="email-login" name="email" type="email" required><br>
             <label>Password</label><br>
-            <input name="password" type="password" required><br>
-            <button id='loginFormBtn' type="submit">Log In!</button>
-            
+            <input id="password-login" name="password" type="password" required><br>
+            <button id='button-login' type="submit">Log In!</button>
         </form>
     </div>
 </div>
-</div>
+
+<script type="text/javascript" src="/js/auth.js"></script>

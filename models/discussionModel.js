@@ -28,9 +28,9 @@ Discussion.init(
       allowNull: false,
       // will only allow alphanumeric characters
     },
+
     public_rating: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
+      type: DataTypes.INTEGER
     },
   },
 

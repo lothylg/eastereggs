@@ -29,17 +29,35 @@ const loginFormHandler = async (event) => {
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#name-signup').value.trim();
+  const username = document.querySelector('#name-signup').value.trim();
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
 
-  if (name && email && password) {
+
+//   fetch('/register', {
+//     method: 'POST',
+//     headers: {
+//         'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify({ displayName, email, password }),
+// })
+// .then(response => response.json())
+// .then(data => {
+//     console.log('User registered:', data);
+//     // Redirect or show a success message
+// })
+// .catch(error => console.error('Error:', error));
+
+
+  if (username && email && password) {
     const response = await fetch('/api/users', {
       method: 'POST',
-      body: JSON.stringify({ name, email, password }),
+      body: JSON.stringify({ username, email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
 
+    console.log(response)
+    
     if (response.ok) {
       document.location.replace('/profile');
     } else {

@@ -1,189 +1,233 @@
 /* General Styles */
-
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f5f4;
-    text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0 0 100px 0;
+  background-color: #f4f4f4;
+  text-align: center;
+  overflow-x: hidden;
 }
 
 /* Header Styles */
 #main-header {
-    background-color: orange;
-    color: white;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  background-color: orange;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 header a {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 
 #leftBorder {
-    border: 1px solid rgb(155, 53, 227);
+  border: 1px solid rgb(155, 53, 227);
 }
 
 #leftNav {
-    height: 700px;
+  min-height: 500px;
+  height: calc(100vh - 220px);
 }
 
 .header-left h1 {
-    font-weight: bold;
-    margin: 0;
-    font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  font-size: 24px;
 }
 
 .header-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header-center input {
-    padding: 5px;
-    width: 200px;
-    margin-right: 10px;
+  padding: 5px;
+  width: 200px;
+  margin-right: 10px;
 }
 
 #saying {
-    background-color: orange;
-    border-bottom: 5px solid pink;
+  background-color: orange;
+  border-bottom: 5px solid pink;
 }
 #seeSmthg {
-    color: white;
+  color: white;
 }
 
 .header-center button {
-    padding: 5px 10px;
-    background-color: #fff;
-    color: orange;
-    border: none;
-    cursor: pointer;
+  padding: 5px 10px;
+  background-color: #fff;
+  color: orange;
+  border: none;
+  cursor: pointer;
 }
 
 .header-center button:hover {
-    background-color: #e0e0e0;
+  background-color: #e0e0e0;
 }
 
 .header-right span {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 #footer {
-    background-color: rgb(157, 74, 225);
-    padding: 10px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgb(157, 74, 225);
+  padding: 10px;
 }
 
 /* Movie Search Page Styles */
 .movie-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .movie {
-    border: 1px solid #ccc;
-    padding: 10px;
-    width: 200px;
-    text-align: center;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 200px;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
 }
 
 .movie:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .movie img {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 /* Discussion Page Styles */
-.discussion-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 45%;
-    margin: 20px auto;
+#discussion-wrapper {
+  position: relative;
+  margin-top: 20px;
+  /* overflow: visible; */
+} 
+
+.discussion-title-bar {
+  background-color: brown;
+  color: white;
+  padding: 4px 10px;
 }
 
-.movie-poster {
-    max-width: 200px;
+#discussion-wrapper h2 {
+  font-size: 1.1rem;
 }
 
-.movie-details {
-    text-align: left;
+#discussion-area-wrapper {
+  position: relative;
+  min-height: 120px;
+  max-height: 320px;
+  /* overflow-y: auto; */
+  border: 1px solid brown;
+  padding: 8px;
+  overflow-y: auto;
 }
 
-.topic-container {
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 45%;
-    margin: 20px auto;
+#discussions-area {
+  gap: 4px;
+  cursor: pointer;
+  margin-bottom: 10px;
 }
 
-.topic-container input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
+.discussions-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px dotted brown;
 }
 
-.topic-container button {
-    width: 100%;
+.discussion-block {
+  padding: 4px 8px;
+  border: 1px solid brown;
+  border-radius: 4px;
+  font-size: .9rem;
+  cursor: pointer;
 }
 
-h3 {
-    margin-bottom: 0; 
-    padding-bottom: 0; 
+#discussion-input, #discussion-comment {
+  width: 100%;
+  margin-bottom: 4px;
 }
 
-#container-fluid {
-    margin-top: 0; 
-    padding-top: 0; 
+.comment-form-area {
+  width: 80%;
+  margin-top: 20px;
+  padding: 12px;
+  text-align: center;
+  background-color: #d5d6c7;
+  border: 1px solid brown;
 }
+
+.comment-form-area input, .comment-form-area textarea, .comment-form-area button, .discussion-form-area button {
+  border: 1px solid brown;
+  border-radius: 4px;
+  padding: 3px;
+  font-size: .9rem;
+  height: 28px;
+}
+
+.comment-form-area textarea {
+  height: 36px;
+  width: 90%;
+}
+
+.comment-form-area button {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+  background-color: brown;
+  color: white;
+  padding: 3px 6px;
+}
+
+.topic-block {
+  width: 48%;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #333;
+  padding: 6px;
+  min-height: 60px;
+}
+
+.comment-block {
+  width: 100%;
+  padding: 3px 8px;
+  border-bottom: 1px dotted #444;
+  margin-bottom: 4px;
+}
+
+
+
 
 #homeBtn {
-    color: white;
-    font-size: xx-large;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  font-size: xx-large;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #loginBtn {
-    color: white;
-    font-size: large;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-#contentContainer {
-    background-color: #a7ef86;
-    display: flex;
-    justify-content: center;
-    height: 40vh;
-}
-
-#myProfile {
-    color: white;
-}
-
-footer p{
-    color: white;
-}
-
-#homeLogOutA {
-    padding-top: 50px;;
+  color: white;
+  font-size: large;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
