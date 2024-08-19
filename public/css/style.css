@@ -231,3 +231,6 @@ header a {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+#tool-tip{
+  font-size: x-small;
+}

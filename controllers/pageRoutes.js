@@ -6,17 +6,40 @@ const { randomNumber } = require("../utils/random")
 // Home page
 router.get('/', async (req, res) => {
   try {
-    const randomMovies = await getRandomMovie()
-    const singleRandomMovie = randomMovies.find( (movie, idx) => idx === randomNumber(0, randomMovies.length-1) )
+    const randomMovies = await getRandomMovie();
+    // const randomMovies = await randomMovieGroup()
+    const apiKey = 'c5d6f49c';
+    const avatarId = 'tt0499549'
+    const url = `http://www.omdbapi.com/?apikey=${apiKey}&i=${avatarId}`;
+    const response = await fetch(url)
+    const avatar = await response.json()
+
+    if (randomMovies.length === 0) {
+      // Handle case where no movies are returned
+      return res.status(500).json({ error: 'No movies found' });
+    }
+
+    const singleRandomMovie = randomMovies[randomNumber(0, randomMovies.length - 1)];
+
+    if (!singleRandomMovie || !singleRandomMovie.imdbID) {
+      // Handle case where selected movie does not have imdbID
+      return res.status(500).json({ error: 'Selected movie does not have an imdbID' });
+    }
+
     const discussionsData = await Discussion.findAll({
-        where: {movie_id: singleRandomMovie.imdbID}, include: { model: Comment, as: "comments" }
+      where: { movie_id: singleRandomMovie.imdbID }, include: { model: Comment, as: "comments" }
+    });
+    const avatarData = await Discussion.findAll({
+      where: {movie_id: 'tt0499549'}
     })
-    res.render('homepage', {random: randomMovies, single: singleRandomMovie, discussions: discussionsData} );
-} catch (err) {
-    console.error(err);22
+    
+    res.render('homepage', { random: randomMovies, single: singleRandomMovie, discussions: discussionsData, avatarDiscussions: avatarData, avatar });
+  } catch (err) {
+    console.error(err);
     res.status(500).json({ error: 'Failed to fetch recent movies', details: err.message });
   }
 });
+
 
 
 // Login/signup page
@@ -24,6 +47,7 @@ router.get('/login', async (req,res) => {
   const random = await getRandomMovie()
   res.render('login', { random })
 });
+
 
 
 // User profile page
@@ -96,6 +120,10 @@ router.get('/search', async (req, res) => {
   const random = await getRandomMovie()
   const result = await searchMovies("query", req.query.q)
   res.render('search', { movies: result, random });
+});
+router.get('/logout', async (req, res) => {
+  const random = await getRandomMovie()
+  res.render('logout', {random}) ;
 });
 
 

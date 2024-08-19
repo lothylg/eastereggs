@@ -24,24 +24,24 @@ async function randomMovieGroup() {
     const randomMovies = sortedMovies.slice(0, 15);
     return randomMovies
 }
-
-router.get('/', async (req, res) => {
-    try {
-        const randomMovies = await randomMovieGroup()
-        const apiKey = 'c5d6f49c';
-        const avatarId = 'tt0499549'
-        const url = `http://www.omdbapi.com/?apikey=${apiKey}&i=${avatarId}`;
-        const response = await fetch(url)
-        const avatar = await response.json()
-        const discussionsData = await Discussion.findAll({
-            where: {movie_id: 'tt0499549'}
-        })
-        res.render('homepage', {randomMovies, avatar, discussions: discussionsData} );
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Failed to fetch recent movies', details: err.message });
-    }
-});
+//this was moved to page routes
+// router.get('/', async (req, res) => {
+//     try {
+//         const randomMovies = await randomMovieGroup()
+//         const apiKey = 'c5d6f49c';
+//         const avatarId = 'tt0499549'
+//         const url = `http://www.omdbapi.com/?apikey=${apiKey}&i=${avatarId}`;
+//         const response = await fetch(url)
+//         const avatar = await response.json()
+//         const discussionsData = await Discussion.findAll({
+//             where: {movie_id: 'tt0499549'}
+//         })
+//         res.render('homepage', {randomMovies, avatar, discussions: discussionsData} );
+//     } catch (err) {
+//         console.error(err);
+//         res.status(500).json({ error: 'Failed to fetch recent movies', details: err.message });
+//     }
+// });
 
 // router.get('/', async (req,res) => {
 //     const apiKey = 'c5d6f49c';
@@ -65,8 +65,9 @@ router.get('/login', async (req,res) => {
 router.get('/profile', async (req, res) => {
     try {
 
-        // const userId = req.session.user_id;
-        const userId = '2';
+        const userId = req.session.user_id;
+        // const userId = '2';
+        console.log(req.session.data)
 
         const user = await User.findByPk(userId);
         const userData = user.get({ plain: true })
