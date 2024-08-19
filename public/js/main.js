@@ -1,5 +1,8 @@
+// const { response } = require("express");
+
 const loginBtn = document.querySelector('#loginBtn');
 const loginFormBtn = document.querySelector('#loginFormBtn');
+const logoutBtn = document.querySelector('#logOut');
 
 const homeBtn = document.querySelector('#homeBtn');
 const myProfile = document.querySelector('#myProfile');
@@ -7,6 +10,23 @@ const discussionTopic = document.querySelector('.discussionTopic');
 
 loginBtn.addEventListener('click', () => {
     window.location.href = "/login"
+});
+logoutBtn.addEventListener('click', () => {
+    const logout = async () => {
+        const response = await fetch('/users/logout', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+        });
+      
+        if (response.ok) {
+          document.location.replace('/');
+        } else {
+          alert(response.statusText);
+        }
+      };
+      
+    //   document.querySelector('#logout').addEventListener('click', logout);
+
 });
 
 
@@ -17,6 +37,7 @@ homeBtn.addEventListener('click', () => {
 myProfile?.addEventListener('click', () => {
     window.location.href = "/profile"
 });
+
 discussionTopic?.addEventListener('click', () => {
     window.location.href = "/discussion/"
 });
@@ -43,8 +64,3 @@ loginFormBtn?.addEventListener('click', (event) => {
     })
     .catch(error => console.error('Error:', error));
 });
-
-
-
-
-//fetch call is data
