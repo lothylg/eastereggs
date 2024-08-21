@@ -28,10 +28,14 @@ router.get('/:id', async (req, res) => { //I updated
 
 
 router.post('/', async (req, res) => {
-  const discussionData = { movie_id: req.body.movie_id, user_id: req.body.user_id, text: req.body.text}
-  console.log(discussionData)
+  if( !req.session ){
+    return res.status(400).json(err);
+  }
+
+  const discussionData = { movie_id: req.body.movie_id, text: req.body.text}
+
   try {
-    const result = await Discussion.create(discussionData);
+    const result = await Discussion.create({...discussionData, user_id: req.session.user_id});
 
     console.log(result)
     const parsedResult = result.get({ plain: true }) 
@@ -40,7 +44,8 @@ router.post('/', async (req, res) => {
     if( result.id && req.body.comment ){
       await Comment.create({
         text: req.body.comment,
-        discussion_id: parsedResult.id
+        discussion_id: parsedResult.id,
+        user_id: req.session.user_id
       })
     }
 

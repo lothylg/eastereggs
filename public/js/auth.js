@@ -33,22 +33,6 @@ const signupFormHandler = async (event) => {
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
 
-
-//   fetch('/register', {
-//     method: 'POST',
-//     headers: {
-//         'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify({ displayName, email, password }),
-// })
-// .then(response => response.json())
-// .then(data => {
-//     console.log('User registered:', data);
-//     // Redirect or show a success message
-// })
-// .catch(error => console.error('Error:', error));
-
-
   if (username && email && password) {
     const response = await fetch('/api/users', {
       method: 'POST',
