@@ -44,8 +44,8 @@ router.post('/', async (req, res) => {
     if( result.id && req.body.comment ){
       await Comment.create({
         text: req.body.comment,
-        discussion_id: parsedResult.id,
-        user_id: req.session.user_id
+        discussion_id: parsedResult.id
+        // user_id: req.session.user_id
       })
     }
 

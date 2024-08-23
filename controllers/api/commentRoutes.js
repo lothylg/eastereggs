@@ -21,9 +21,9 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   console.log(req.body)
-  const commentData = {...req.body, user_id: req.session.user_id}
+  // const commentData = {...req.body}
   try {
-    const result = await Comment.create(commentData);
+    const result = await Comment.create(req.body);
     res.status(200).json({ status: "success", payload: result });
   } catch (err) {
     res.status(400).json(err);
